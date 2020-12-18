@@ -3,6 +3,7 @@ let boxApp = new Vue({
   data: {
     activeIndex: 0,
     newMessage: '',
+    search:'',
     contacts: [{
         name: 'Michele',
         avatar: '_1',
@@ -121,6 +122,18 @@ let boxApp = new Vue({
         boxApp.contacts[boxApp.activeIndex].messages.push(messagePrint);
 
       }, 1000);
+    },
+    searchUser: function(){
+      this.contacts.forEach(e => {
+        const search = this.search.toLowerCase();
+        const name = e.name.toLowerCase();
+        
+        if (name.includes(search)) {
+          e.visible = true;
+        }else{
+          e.visible = false;
+        }
+      });
     },
   },
   created() {

@@ -66,14 +66,14 @@
 
         <!-- #aside_search -->
         <div id="aside_search">
-          <input type="text" placeholder="Cerca o inizia una nuova chat">
+          <input v-model="search" type="text" v-on:keyup="searchUser()" placeholder="Cerca o inizia una nuova chat">
         </div>
         <!-- /#aside_search -->
 
 
         <!-- #user_wrap -->
         <div id="users_wrap">
-          <div v-for="(user,i) in contacts" class="user_box">
+          <div v-if="contacts[i].visible" v-for="(user,i) in contacts" class="user_box">
             <img v-on:click="getIndex(i)" class="avatar_img" :src="`assets/img/avatar${contacts[i].avatar}.jpg`" alt="">
             <span class="user_box_name">{{contacts[i].name}}</span>
           </div>
