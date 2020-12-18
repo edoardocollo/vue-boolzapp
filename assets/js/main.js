@@ -2,6 +2,7 @@ let boxApp = new Vue({
   el: '#box_app',
   data: {
     activeIndex: 0,
+    newMessage: '',
     contacts: [{
         name: 'Michele',
         avatar: '_1',
@@ -103,6 +104,23 @@ let boxApp = new Vue({
     getIndex: function(index){
       console.log(index);
       this.activeIndex = index;
+    },
+    printMessage: function(){
+      const messagePrint = {
+        text: this.newMessage,
+        status: 'sent'
+      };
+      console.log(messagePrint);
+      this.contacts[this.activeIndex].messages.push(messagePrint);
+      this.newMessage = '';
+      setTimeout(function () {
+        const messagePrint = {
+          text: 'ok',
+          status: 'received'
+        };
+        boxApp.contacts[boxApp.activeIndex].messages.push(messagePrint);
+
+      }, 1000);
     },
   },
   created() {

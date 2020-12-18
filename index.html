@@ -156,7 +156,7 @@
         <!-- /#main_footer -->
         <div id="main_footer">
           <i class="far fa-smile"></i>
-          <input id="message_input" type="text" placeholder="Scrivi un messaggio">
+          <input id="message_input" type="text" placeholder="Scrivi un messaggio" v-model="newMessage" v-on:keyup.enter="printMessage()">
           <i class="fas fa-microphone"></i>
         </div>
         <!-- /#main_footer -->
