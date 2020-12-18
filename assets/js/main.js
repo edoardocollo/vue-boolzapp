@@ -1,6 +1,7 @@
 let boxApp = new Vue({
   el: '#box_app',
   data: {
+    activeIndex: 0,
     contacts: [{
         name: 'Michele',
         avatar: '_1',
@@ -99,7 +100,10 @@ let boxApp = new Vue({
     ]
   },
   methods: {
-
+    getIndex: function(index){
+      console.log(index);
+      this.activeIndex = index;
+    },
   },
   created() {
 

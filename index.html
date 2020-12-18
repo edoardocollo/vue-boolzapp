@@ -74,7 +74,7 @@
         <!-- #user_wrap -->
         <div id="users_wrap">
           <div v-for="(user,i) in contacts" class="user_box">
-            <img class="avatar_img" :src="`assets/img/avatar${contacts[i].avatar}.jpg`" alt="">
+            <img v-on:click="getIndex(i)" class="avatar_img" :src="`assets/img/avatar${contacts[i].avatar}.jpg`" alt="">
             <span class="user_box_name">{{contacts[i].name}}</span>
           </div>
         </div>
@@ -137,9 +137,9 @@
 
 
 
-          <div class="message_row">
+          <div v-for="message in contacts[activeIndex].messages" class="message_row">
             <div class="message_card">
-              Lorem ipsum dolor sit.
+              {{message.text}}
             </div>
           </div>
 
