@@ -3,3 +3,37 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+
+/* COLORS */
+/* /////////////// */
+
+/* grigio sfondo : #d8dbd6 */
+/* verde header: #009688 */
+/* main app grigio: #eaeaea */
+/* main app panna: #f3eeea */
+/* main app notifiche: #f3eeea */
+
+
+
+body {
+}
+#main_wrap{
+  width: 100vw;
+  height: 100vh;
+  background-color: #d8dbd6;
+}
+header {
+ width: 100vw;
+ height: 125px;
+ background-color: #009688;
+}
+#box_app {
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  width: 1430px;
+  height: 800px;
+  background-color: #fff;
+}
