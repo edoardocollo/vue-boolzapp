@@ -137,8 +137,8 @@
 
 
 
-          <div v-for="message in contacts[activeIndex].messages" class="message_row">
-            <div class="message_card">
+          <div v-for="message in contacts[activeIndex].messages"  class="message_row">
+            <div :class="`message_card ${message.status}`">
               {{message.text}}
             </div>
           </div>
