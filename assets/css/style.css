@@ -13,10 +13,14 @@
 /* main app grigio: #eaeaea */
 /* main app panna: #f3eeea */
 /* main app notifiche: #8edafc */
+/* main icone grigio: #b2b2b2 */
+/* main link: #507587 */
 
 
 
 body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
 }
 #main_wrap{
   width: 100vw;
@@ -28,7 +32,22 @@ header {
  height: 125px;
  background-color: #009688;
 }
-
+.avatar_img {
+  height: 75px;
+  border-radius: 50%;
+  margin: 15px;
+}
+i {
+  font-size: 40px;
+  margin: 15px;
+  color: #b2b2b2;
+}
+input {
+  font-size: 18px;
+}
+a {
+  color: #507587;
+}
 /* BOX APP */
 /* /////////////////// */
 
@@ -42,7 +61,7 @@ header {
   transform: translateX(-50%);
   width: 1430px;
   height: 800px;
-  background-color: #fff;
+  background-color: #eaeaea;
 }
 
 /* MAIN ASIDE */
@@ -52,17 +71,40 @@ header {
   display: flex;
   flex-direction: column;
   width: 500px;
-  border: 1px solid black;
   background-color: white;
 
 }
 #aside_header {
+  display: flex;
+  justify-content: space-between;
   height: 105px;
   background-color: #eaeaea;
+  padding-right: 15px;
+}
+.user_wrapper, .icon_wrapper {
+  display: flex;
+  align-items: center;
 }
 #aside_notification {
+  display: flex;
+  align-items: center;
   height: 120px;
+  padding: 0 30px;
   background-color: #8edafc;
+}
+#bell_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+  width: 75px;
+  margin-right: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+.fa-bell-slash {
+  color: #8edafc;
+  font-size: 30px;
 }
 #aside_search {
   display: flex;
@@ -76,8 +118,9 @@ header {
   width: 100%;
   height: 100%;
   border: 0;
+  padding-left:30px;
 }
-#user_wrap {
+#users_wrap {
   height: 520px;
   overflow-y: scroll;
 }
@@ -95,7 +138,34 @@ header {
 
 #main_app {
   width: 930px;
-  border: 1px solid black;
-  background-color: red;
-
+}
+#main_header {
+  display: flex;
+  justify-content: space-between;
+  height: 105px;
+  padding-right: 15px;
+  background-color: #eaeaea;
+}
+#message_box {
+  height: 590px;
+  overflow-y: scroll;
+  background-image: url('../img/mine.jpg');
+}
+#main_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 105px;
+  width: 930px;
+  position: fixed;
+  bottom: 0;
+  padding: 15px;
+  background-color: #f3eeea;
+}
+#message_input {
+  width: 740px;
+  height: 75px;
+  border: 0;
+  padding-left: 30px;
+  border-radius: 15px;
 }
