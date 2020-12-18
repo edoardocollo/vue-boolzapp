@@ -12,7 +12,7 @@
 /* verde header: #009688 */
 /* main app grigio: #eaeaea */
 /* main app panna: #f3eeea */
-/* main app notifiche: #f3eeea */
+/* main app notifiche: #8edafc */
 
 
 
@@ -28,12 +28,74 @@ header {
  height: 125px;
  background-color: #009688;
 }
+
+/* BOX APP */
+/* /////////////////// */
+
+
 #box_app {
+  display: flex;
   position: absolute;
+  align-items: stretch;
   left: 50%;
   top: 20px;
   transform: translateX(-50%);
   width: 1430px;
   height: 800px;
   background-color: #fff;
+}
+
+/* MAIN ASIDE */
+/* ///////////////////// */
+
+#main_aside {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  border: 1px solid black;
+  background-color: white;
+
+}
+#aside_header {
+  height: 105px;
+  background-color: #eaeaea;
+}
+#aside_notification {
+  height: 120px;
+  background-color: #8edafc;
+}
+#aside_search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+  padding: 10px;
+  background-color: #eaeaea;
+}
+#aside_search input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+#user_wrap {
+  height: 520px;
+  overflow-y: scroll;
+}
+
+
+
+
+
+
+
+
+
+/* MAIN APP */
+/* /////////////////// */
+
+#main_app {
+  width: 930px;
+  border: 1px solid black;
+  background-color: red;
+
 }
