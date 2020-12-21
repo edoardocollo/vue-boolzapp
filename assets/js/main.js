@@ -155,27 +155,25 @@ let boxApp = new Vue({
       return `${day}/${month + 1}/${year} ${hours}:${minutes}:${seconds}`;
     },
   },
-  created() {
+  beforeCreate() {
+    setTimeout(function () {
+
+      boxApp.contacts.forEach(e=>{
+        const filtered = [];
+        e.messages.forEach(e =>{
+          if (e.status == 'received') {
+            filtered.push(e);
+          }
+        });
+        console.log(filtered);
+        const lastLogTemp = filtered[filtered.length-1].date;
+        console.log(lastLogTemp);
+        e.lastLog = lastLogTemp;
+      });
+    }, 1);
 
   },
   mounted(){
 
   },
 })
-
-
-
-
-boxApp.contacts.forEach(e =>{
-  const messages = e.messeges
-  function getLastLog(messages){
-    let filtered = messages.filter(e =>{
-      if (e.status == 'received') {
-        return e;
-      }
-    });
-    const lastUserLog = filtered[filtered.length - 1].date;
-    console.log(lastUserLog);
-    e.lastLog = lastUserLog;
-  }
-});
