@@ -107,7 +107,10 @@ let boxApp = new Vue({
       this.activeIndex = index;
     },
     printMessage: function(){
+
+
       const messagePrint = {
+        date: this.getCurrentDate(),
         text: this.newMessage,
         status: 'sent'
       };
@@ -115,11 +118,14 @@ let boxApp = new Vue({
       this.contacts[this.activeIndex].messages.push(messagePrint);
       this.newMessage = '';
       setTimeout(function () {
+        const now = boxApp.getCurrentDate()
         const messagePrint = {
+          date: now,
           text: 'ok',
           status: 'received'
         };
         boxApp.contacts[boxApp.activeIndex].messages.push(messagePrint);
+        boxApp.contacts[boxApp.activeIndex].lastLog = now;
 
       }, 1000);
     },
@@ -127,7 +133,7 @@ let boxApp = new Vue({
       this.contacts.forEach(e => {
         const search = this.search.toLowerCase();
         const name = e.name.toLowerCase();
-        
+
         if (name.includes(search)) {
           e.visible = true;
         }else{
@@ -135,8 +141,41 @@ let boxApp = new Vue({
         }
       });
     },
+    // getLastLog: function(){
+    //
+    // }
+    getCurrentDate: function(){
+
+      const day = new Date().getDate();
+      const month = new Date().getMonth();
+      const year = new Date().getFullYear();
+      const hours = new Date().getHours();
+      const minutes = new Date().getMinutes();
+      const seconds = new Date().getSeconds();
+      return `${day}/${month + 1}/${year} ${hours}:${minutes}:${seconds}`;
+    },
   },
   created() {
 
-  }
+  },
+  mounted(){
+
+  },
 })
+
+
+
+
+boxApp.contacts.forEach(e =>{
+  const messages = e.messeges
+  function getLastLog(messages){
+    let filtered = messages.filter(e =>{
+      if (e.status == 'received') {
+        return e;
+      }
+    });
+    const lastUserLog = filtered[filtered.length - 1].date;
+    console.log(lastUserLog);
+    e.lastLog = lastUserLog;
+  }
+});

@@ -124,6 +124,7 @@ a {
 #users_wrap {
   height: 500px;
   overflow-y: scroll;
+  cursor: pointer;
 }
 .user_box {
   height: 120px;
@@ -153,6 +154,9 @@ a {
   padding-right: 15px;
   background-color: #eaeaea;
 }
+.last_log {
+  font-size: 15px;
+}
 #message_box {
   height: 590px;
   overflow-y: scroll;
@@ -169,7 +173,7 @@ a {
 }
 .message_card {
   display: inline-block;
-  padding: 27px;
+  padding: 27px 27px 5px 27px;
   border-radius: 15px;
 }
 .sent {
@@ -179,6 +183,10 @@ a {
 }
 .received {
   background-color: #fff;
+}
+.date {
+  color: #507587;
+  font-size: 13px;
 }
 #main_footer {
   display: flex;

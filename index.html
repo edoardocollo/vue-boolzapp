@@ -73,8 +73,8 @@
 
         <!-- #user_wrap -->
         <div id="users_wrap">
-          <div v-if="contacts[i].visible" v-for="(user,i) in contacts" class="user_box">
-            <img v-on:click="getIndex(i)" class="avatar_img" :src="`assets/img/avatar${contacts[i].avatar}.jpg`" alt="">
+          <div v-on:click="getIndex(i)" v-if="contacts[i].visible" v-for="(user,i) in contacts" class="user_box">
+            <img class="avatar_img" :src="`assets/img/avatar${contacts[i].avatar}.jpg`" alt="">
             <span class="user_box_name">{{contacts[i].name}}</span>
           </div>
         </div>
@@ -109,8 +109,12 @@
         <!-- /#main_header -->
         <div id="main_header">
           <div class="user_wrapper">
-            <img class="avatar_img" src="assets/img/avatar_2.jpg" alt="">
-            <span class="nome_utente">Nome utente</span>
+            <img class="avatar_img" :src="`assets/img/avatar${contacts[activeIndex].avatar}.jpg`" alt="">
+            <div class="wrap">
+
+              <span class="nome_utente">{{contacts[activeIndex].name}}</span><br>
+              <span class="last_log">{{contacts[activeIndex].lastLog}}</span>
+            </div>
           </div>
 
 
@@ -139,7 +143,8 @@
 
           <div v-for="message in contacts[activeIndex].messages"  class="message_row">
             <div :class="`message_card ${message.status}`">
-              {{message.text}}
+              {{message.text}}<br>
+              <span class="date">{{message.date}}</span>
             </div>
           </div>
 
