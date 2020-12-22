@@ -11,17 +11,20 @@ let boxApp = new Vue({
         messages: [{
             date: '10/01/2020 15:30:55',
             text: 'Hai portato a spasso il cane?',
-            status: 'sent'
+            status: 'sent',
+            deleteShow: false
           },
           {
             date: '10/01/2020 15:50:00',
             text: 'Ricordati di dargli da mangiare',
-            status: 'sent'
+            status: 'sent',
+            deleteShow: false
           },
           {
             date: '10/01/2020 16:15:22',
             text: 'Tutto fatto!',
-            status: 'received'
+            status: 'received',
+            deleteShow: false
           }
         ],
       },
@@ -32,17 +35,20 @@ let boxApp = new Vue({
         messages: [{
             date: '20/03/2020 16:30:00',
             text: 'Ciao come stai?',
-            status: 'sent'
+            status: 'sent',
+            deleteShow: false
           },
           {
             date: '20/03/2020 16:30:55',
             text: 'Bene grazie! Stasera ci vediamo?',
-            status: 'received'
+            status: 'received',
+            deleteShow: false
           },
           {
             date: '20/03/2020 16:35:00',
             text: 'Mi piacerebbe ma devo andare a fare la spesa.',
-            status: 'sent'
+            status: 'sent',
+            deleteShow: false
           }
         ],
       },
@@ -53,17 +59,20 @@ let boxApp = new Vue({
         messages: [{
             date: '28/03/2020 10:10:40',
             text: 'La Marianna va in campagna',
-            status: 'received'
+            status: 'received',
+            deleteShow: false
           },
           {
             date: '28/03/2020 10:20:10',
             text: 'Sicuro di non aver sbagliato chat?',
-            status: 'sent'
+            status: 'sent',
+            deleteShow: false
           },
           {
             date: '28/03/2020 16:15:22',
             text: 'Ah scusa!',
-            status: 'received'
+            status: 'received',
+            deleteShow: false
           }
         ],
       },
@@ -74,12 +83,14 @@ let boxApp = new Vue({
         messages: [{
             date: '10/01/2020 15:30:55',
             text: 'Lo sai che ha aperto una nuova pizzeria?',
-            status: 'sent'
+            status: 'sent',
+            deleteShow: false
           },
           {
             date: '10/01/2020 15:50:00',
             text: 'Si, ma preferirei andare al cinema',
-            status: 'received'
+            status: 'received',
+            deleteShow: false
           }
         ],
       },
@@ -90,12 +101,14 @@ let boxApp = new Vue({
         messages: [{
             date: '10/01/2020 15:30:55',
             text: 'Lo sai che ha aperto una nuova pizzeria?',
-            status: 'sent'
+            status: 'sent',
+            deleteShow: false
           },
           {
             date: '10/01/2020 15:50:00',
             text: 'Si, ma preferirei andare al cinema',
-            status: 'received'
+            status: 'received',
+            deleteShow: false
           }
         ],
       },
@@ -112,7 +125,8 @@ let boxApp = new Vue({
       const messagePrint = {
         date: this.getCurrentDate(),
         text: this.newMessage,
-        status: 'sent'
+        status: 'sent',
+        deleteShow: false
       };
       console.log(messagePrint);
       this.contacts[this.activeIndex].messages.push(messagePrint);
@@ -122,7 +136,8 @@ let boxApp = new Vue({
         const messagePrint = {
           date: now,
           text: 'ok',
-          status: 'received'
+          status: 'received',
+          deleteShow: false
         };
         boxApp.contacts[boxApp.activeIndex].messages.push(messagePrint);
         boxApp.contacts[boxApp.activeIndex].lastLog = now;
@@ -153,6 +168,9 @@ let boxApp = new Vue({
       const minutes = new Date().getMinutes();
       const seconds = new Date().getSeconds();
       return `${day}/${month + 1}/${year} ${hours}:${minutes}:${seconds}`;
+    },
+    deleteMessage: function(array,index){
+      array.splice(index,1);
     },
   },
   beforeCreate() {

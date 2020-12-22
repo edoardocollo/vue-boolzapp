@@ -172,9 +172,30 @@ a {
   clear: both;
 }
 .message_card {
+  position: relative;
   display: inline-block;
   padding: 27px 27px 5px 27px;
   border-radius: 15px;
+}
+.fa-chevron-down {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 15px;
+  cursor: pointer;
+}
+.delete_dropdown {
+  min-width: 190px;
+  position: absolute;
+  right: 0;
+  background-color: #eaeaea;
+  padding: 5px;
+  cursor: pointer;
+}
+.fa-check {
+  float: right;
+font-size: 15px;
+margin: 0;
 }
 .sent {
   float: right;
