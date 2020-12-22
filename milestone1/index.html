@@ -66,15 +66,15 @@
 
         <!-- #aside_search -->
         <div id="aside_search">
-          <input v-model="search" type="text" v-on:keyup="searchUser()" placeholder="Cerca o inizia una nuova chat">
+          <input  placeholder="Cerca o inizia una nuova chat">
         </div>
         <!-- /#aside_search -->
 
 
         <!-- #user_wrap -->
         <div id="users_wrap">
-          <div v-on:click="getIndex(i)" v-if="contacts[i].visible" v-for="(user,i) in contacts" class="user_box">
-            <img class="avatar_img" :src="`assets/img/avatar${contacts[i].avatar}.jpg`" alt="">
+          <div  v-for="(user,i) in contacts" class="user_box">
+            <img class="avatar_img" :src="`assets/img/avatar${user.avatar}.jpg`" alt="">
             <span class="user_box_name">{{contacts[i].name}}</span>
           </div>
         </div>
@@ -109,11 +109,10 @@
         <!-- /#main_header -->
         <div id="main_header">
           <div class="user_wrapper">
-            <img class="avatar_img" :src="`assets/img/avatar${contacts[activeIndex].avatar}.jpg`" alt="">
+            <img class="avatar_img" src="assets/img/avatar_1.jpg" alt="">
             <div class="wrap">
 
-              <span class="nome_utente">{{contacts[activeIndex].name}}</span><br>
-              <span class="last_log">{{contacts[activeIndex].lastLog}}</span>
+              <span class="nome_utente"></span><br>
             </div>
           </div>
 
@@ -141,17 +140,7 @@
 
 
 
-          <div v-for="(message,i) in contacts[activeIndex].messages"  class="message_row">
-            <div :class="`message_card ${message.status}`">
-              <i class="fas fa-chevron-down" v-on:click="message.deleteShow = !message.deleteShow"></i>
-              <span class="delete_dropdown" v-if="message.deleteShow" v-on:click="deleteMessage(contacts[activeIndex].messages,i)">Cancella messaggio</span>
-              {{message.text}}<br>
-              <span class="date">{{message.date}}</span>
-              <!-- <div class="check_wrap">
-                <i class="fas fa-check"></i><i class="fas fa-check"></i>
-              </div> -->
-            </div>
-          </div>
+
 
 
 
@@ -166,8 +155,8 @@
         <!-- /#main_footer -->
         <div id="main_footer">
           <i class="far fa-smile"></i>
-          <input id="message_input" type="text" placeholder="Scrivi un messaggio" v-model="newMessage" v-on:keyup.enter="printMessage()">
-          <i class="fas fa-microphone"></i>
+          <input id="message_input" type="text" placeholder="Scrivi un messaggio">
+          <i class="fas fa-microphone"  ></i>
         </div>
         <!-- /#main_footer -->
 
@@ -191,7 +180,6 @@
 
 
   </div>
-
 
 
 

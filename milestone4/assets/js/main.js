@@ -4,6 +4,7 @@ let boxApp = new Vue({
     activeIndex: 0,
     newMessage: '',
     search:'',
+    recActive: false,
     contacts: [{
         name: 'Michele',
         avatar: '_1',
@@ -159,19 +160,7 @@ let boxApp = new Vue({
     // getLastLog: function(){
     //
     // }
-    getCurrentDate: function(){
-
-      const day = new Date().getDate();
-      const month = new Date().getMonth();
-      const year = new Date().getFullYear();
-      const hours = new Date().getHours();
-      const minutes = new Date().getMinutes();
-      const seconds = new Date().getSeconds();
-      return `${day}/${month + 1}/${year} ${hours}:${minutes}:${seconds}`;
-    },
-    deleteMessage: function(array,index){
-      array.splice(index,1);
-    },
+    
   },
   beforeCreate() {
     setTimeout(function () {

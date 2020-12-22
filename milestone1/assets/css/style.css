@@ -187,12 +187,16 @@ a {
   cursor: pointer;
 }
 .delete_dropdown {
+
   min-width: 190px;
   position: absolute;
   right: 0;
   background-color: #eaeaea;
   padding: 5px;
   cursor: pointer;
+}
+.delete_wrap:hover {
+color: white ;
 }
 .fa-check {
   float: right;
