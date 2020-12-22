@@ -133,7 +133,9 @@ a {
   align-items: flex-start;
   border-bottom: 2px solid #b2b2b2;
 }
-
+.user_box:hover {
+  background-color: #8edafc;
+}
 
 
 
