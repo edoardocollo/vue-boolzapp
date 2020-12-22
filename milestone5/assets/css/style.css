@@ -136,7 +136,9 @@ a {
 .user_box:hover {
   background-color: #8edafc;
 }
-
+.user_last_log{
+  font-size: 15px;
+}
 
 
 

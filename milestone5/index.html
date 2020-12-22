@@ -34,6 +34,7 @@
           <div class="user_wrapper">
             <img class="avatar_img" src="assets/img/avatar_1.jpg" alt="">
             <span class="nome_utente">Nome utente</span>
+            <span class="last_log">{{myLastLog}}</span>
           </div>
 
 
@@ -75,7 +76,10 @@
         <div id="users_wrap">
           <div v-on:click="getIndex(i)" v-if="contacts[i].visible" v-for="(user,i) in contacts" class="user_box">
             <img class="avatar_img" :src="`assets/img/avatar${contacts[i].avatar}.jpg`" alt="">
-            <span class="user_box_name">{{contacts[i].name}}</span>
+            <div class="name_log_wrap">
+              <span class="user_box_name">{{contacts[i].name}}</span><br>
+              <span class="user_last_log">{{lastLog(i)}}</span>
+            </div>
           </div>
         </div>
         <!-- /#user_wrap -->
@@ -113,7 +117,7 @@
             <div class="wrap">
 
               <span class="nome_utente">{{contacts[activeIndex].name}}</span><br>
-              <span class="last_log">{{contacts[activeIndex].lastLog}}</span>
+              <span class="last_log">{{lastLog(activeIndex)}}</span>
             </div>
           </div>
 

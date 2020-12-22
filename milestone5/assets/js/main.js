@@ -117,7 +117,7 @@ let boxApp = new Vue({
   },
   methods: {
     getIndex: function(index){
-      console.log(index);
+      // console.log(index);
       this.activeIndex = index;
     },
     printMessage: function(){
@@ -129,7 +129,7 @@ let boxApp = new Vue({
         status: 'sent',
         deleteShow: false
       };
-      console.log(messagePrint);
+      // console.log(messagePrint);
       this.contacts[this.activeIndex].messages.push(messagePrint);
       this.newMessage = '';
       setTimeout(function () {
@@ -141,7 +141,6 @@ let boxApp = new Vue({
           deleteShow: false
         };
         boxApp.contacts[boxApp.activeIndex].messages.push(messagePrint);
-        boxApp.contacts[boxApp.activeIndex].lastLog = now;
 
       }, 1000);
     },
@@ -173,27 +172,45 @@ let boxApp = new Vue({
     deleteMessage: function(array,index){
       array.splice(index,1);
     },
-    
-  },
-  beforeCreate() {
-    setTimeout(function () {
-
-      boxApp.contacts.forEach(e=>{
-        const filtered = [];
-        e.messages.forEach(e =>{
-          if (e.status == 'received') {
-            filtered.push(e);
-          }
-        });
-        console.log(filtered);
-        const lastLogTemp = filtered[filtered.length-1].date;
-        console.log(lastLogTemp);
-        e.lastLog = lastLogTemp;
-      });
-    }, 1);
 
   },
+  // beforeCreate() {
+  //   setTimeout(function () {
+  //
+  //     boxApp.contacts.forEach(e=>{
+  //       const filtered = [];
+  //       e.messages.forEach(e =>{
+  //         if (e.status == 'received') {
+  //           filtered.push(e);
+  //         }
+  //       });
+  //       console.log(filtered);
+  //       const lastLogTemp = filtered[filtered.length-1].date;
+  //       console.log(lastLogTemp);
+  //       e.lastLog = lastLogTemp;
+  //     });
+  //   }, 1);
+  //
+  // },
   mounted(){
 
+  },
+  computed:{
+    lastLog:function(index){
+      return index => this.contacts[index].messages[this.contacts[index].messages.length-1].date;
+
+    },
+    myLastLog: function(){
+      const filtered = [];
+      this.contacts.forEach(e=>{
+        e.messages.forEach(e =>{
+          if (e.status == 'sent') {
+            filtered.push(e.date);
+          }
+        });
+      });
+      const filteredSorted = filtered.sort();
+      return filteredSorted[filteredSorted.length - 1];
+    },
   },
 })
