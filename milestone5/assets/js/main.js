@@ -205,12 +205,30 @@ let boxApp = new Vue({
       this.contacts.forEach(e=>{
         e.messages.forEach(e =>{
           if (e.status == 'sent') {
-            filtered.push(e.date);
+
+            const day = e.date.substring(0,2);
+            const month = e.date.substring(3,5);
+            const year= e.date.substring(6,10);
+            const hours = e.date.substring(11,13);
+            const minutes = e.date.substring(14,16);
+            const seconds = e.date.substring(17,19);
+            const stringForSort =`${year}${month}${day}${hours}${minutes}${seconds}`;
+
+            filtered.push(stringForSort);
           }
         });
       });
       const filteredSorted = filtered.sort();
-      return filteredSorted[filteredSorted.length - 1];
+      const myLastLogTemp = filteredSorted[filteredSorted.length - 1];
+      const year = myLastLogTemp.substring(0,4);
+      const month = myLastLogTemp.substring(4,6);
+      const day= myLastLogTemp.substring(6,8);
+      const hours = myLastLogTemp.substring(8,10);
+      const minutes = myLastLogTemp.substring(10,12);
+      const seconds = myLastLogTemp.substring(12,14);
+      const myLastLog =`${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+      return myLastLog;
+
     },
   },
 })

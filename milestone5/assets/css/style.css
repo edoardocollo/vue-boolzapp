@@ -86,6 +86,10 @@ a {
   display: flex;
   align-items: center;
 }
+.wrap {
+  display: flex;
+  flex-direction: column;
+}
 #aside_notification {
   display: flex;
   align-items: center;
